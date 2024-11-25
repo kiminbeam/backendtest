@@ -24,10 +24,12 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //이유 이유
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// DB이용, 상호작용, 관리 쉽게 하기위해서
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools' // 이유 이유
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// 브라우저 콘솔사용해서 결과 확인할려고
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
