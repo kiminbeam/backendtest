@@ -34,11 +34,12 @@ public class UserService {
     }
 
     @Transactional
-    public void updateUserInfo(int id, UserRequest.UpdateDTO userRequestDto) {
+    public UserDTO updateUserInfo(int id, UserRequest.UpdateDTO userRequestDto) {
         User user = userRepo.findByUserId(id)
                 .orElseThrow(() -> new Exception404("오류발생: " + id));
 
         user.update(userRequestDto.getName());
 
+        return new UserDTO(user.getId(),user.getName());
     }
 }
