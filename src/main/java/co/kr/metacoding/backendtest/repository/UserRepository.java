@@ -20,4 +20,8 @@ public class UserRepository {
         System.out.println(user.getName());
         em.persist(user);
     }
+
+    public Optional<User> findByUserId(int id) {
+        return Optional.ofNullable(em.find(User.class, id ));
+    }
 }

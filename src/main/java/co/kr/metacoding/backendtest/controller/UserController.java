@@ -17,7 +17,12 @@ public class UserController {
     public void postUser(@RequestBody UserRequestDto.PostDTO userRequestDto) {
 
         userService.postUser(userRequestDto);
+
     }
 
-
+    @GetMapping("/users/{id}")
+    public UserDTO getUser(@PathVariable int id) {
+        System.out.println(userService.findUser(id));
+        return userService.findUser(id);
+    }
 }

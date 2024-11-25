@@ -20,7 +20,14 @@ public class UserService {
     @Transactional
     public void postUser(UserRequestDto.PostDTO userRequestDto) {
 
-
         userRepo.postUser(userRequestDto.toEntity());
+        
+    }
+
+    public UserDTO findUser(int id) {
+        Optional<User> u = userRepo.findByUserId(id);
+        User userData = u.get();
+        UserDTO userDto = new UserDTO(userData.getId(), userData.getName());
+        return userDto;
     }
 }
