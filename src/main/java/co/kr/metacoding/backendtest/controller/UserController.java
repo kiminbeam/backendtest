@@ -1,8 +1,7 @@
 package co.kr.metacoding.backendtest.controller;
 
 import co.kr.metacoding.backendtest.dto.UserDTO;
-import co.kr.metacoding.backendtest.dto.UserRequestDto;
-import co.kr.metacoding.backendtest.entity.User;
+import co.kr.metacoding.backendtest.dto.UserRequest;
 import co.kr.metacoding.backendtest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/users")
-    public void postUser(@RequestBody UserRequestDto.PostDTO userRequestDto) {
+    public void postUser(@RequestBody UserRequest.PostDTO userRequestDto) {
 
         userService.postUser(userRequestDto);
 
@@ -24,5 +23,11 @@ public class UserController {
     public UserDTO getUser(@PathVariable int id) {
         System.out.println(userService.findUser(id));
         return userService.findUser(id);
+    }
+
+    @PutMapping("/users/{id}")
+    public void updateUser(@PathVariable int id, @RequestBody UserRequest.UpdateDTO userUpdateDto) {
+        System.out.println(userUpdateDto.getName());
+        userService.updateUserInfo(id, userUpdateDto);
     }
 }

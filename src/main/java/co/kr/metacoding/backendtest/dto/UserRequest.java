@@ -3,7 +3,7 @@ package co.kr.metacoding.backendtest.dto;
 import co.kr.metacoding.backendtest.entity.User;
 import lombok.Data;
 
-public class UserRequestDto {
+public class UserRequest {
 
     @Data
     public static class PostDTO{
@@ -13,6 +13,11 @@ public class UserRequestDto {
             User u = new User(null ,name);
             return u;
         }
+    }
+
+    @Data
+    public static class UpdateDTO{
+        private String name;
     }
 
 }
